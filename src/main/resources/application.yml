@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: effective-test
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/test}
+    username: ${DB_LOGIN:postgres}
+    password: ${DB_PASS:password}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: public
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 9999
+  servlet:
+    encoding:
+      force: true
+springdoc:
+  api-docs:
+    path: /api/swagger/effective/v3/api-docs
+  swagger-ui:
+    path: /api/swagger/effective/swagger-ui.html
